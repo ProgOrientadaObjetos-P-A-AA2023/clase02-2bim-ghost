@@ -6,6 +6,10 @@ public class EstudiantePresencial extends Estudiante{
     private int numeroCreditos;
     private double costoCredito;
     private double matriculaPresencial;
+
+    public EstudiantePresencial(String n, String a, String iden, int ed) {
+        super(n, a, iden, ed);
+    }
     
     //  Métodos establecer y calcular para los datos o atributos de la clase
     // 2.  Método establecerNumeroCreditos(numero: Real)
@@ -38,5 +42,23 @@ public class EstudiantePresencial extends Estudiante{
     public double obtenerMatriculaPresencial(){
         return matriculaPresencial;
     }
+
+    @Override
+    public String toString() {
+        String cadenaFinal = String.format("%s", super.toString());
+        
+        cadenaFinal = String.format("%s\n"
+                + "Numero Creditos: %d\n"
+                + "Costo Creditos: %.2f\n"
+                + "Matricula Presencial: %.2f\n",
+                cadenaFinal,
+                numeroCreditos,
+                costoCredito,
+                matriculaPresencial);
+        
+        return cadenaFinal;
+    }
+    
+    
     
 }
