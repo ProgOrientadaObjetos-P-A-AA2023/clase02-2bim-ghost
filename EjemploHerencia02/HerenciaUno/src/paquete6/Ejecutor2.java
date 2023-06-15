@@ -24,13 +24,43 @@ public class Ejecutor2 {
         boolean bandera = true;
         String cadena = "";
         
+        
+        
         while(bandera){
-            System.out.println("ingresa un saludo");
-            String saludo = entrada.nextLine();
-            cadena = String.format("%s%s\n", cadena, saludo);
-            System.out.println("Desea salir, pulse S");
-            String opcion = entrada.nextLine();
-            if(opcion.equals("S")){
+            entrada.nextLine();
+            System.out.println("\nIngrese nombre");
+            String n = entrada.nextLine();
+            System.out.println("Ingrese apellido");
+            String ap = entrada.nextLine();
+            System.out.println("Ingrese identificación");
+            String ced = entrada.nextLine();
+            System.out.println("Ingrese edad");
+            int edad = entrada.nextInt();
+            System.out.println("Ingrese número de créditos");
+            int creditos = entrada.nextInt();
+            System.out.println("Ingrese costo de créditos");
+            double costo = entrada.nextInt();
+
+            EstudiantePresencial presencial = new EstudiantePresencial(n, ap, ced,
+                    edad, costo, creditos);
+            presencial.calcularMatriculaPresencial();
+  
+            cadena = String.format("%s\n"
+                    + "Nombre: %s\n"
+                    + "Apellido: %s\n"
+                    + "Edad: %d\n"
+                    + "ID: %s\n\n%s\n",
+                    cadena,
+                    presencial.obtenerNombresEstudiante(),
+                    presencial.obtenerApellidoEstudiante(),
+                    presencial.obtenerEdadEstudiante(),
+                    presencial.obtenerIdentificacionEstudiante(),
+                    presencial);
+            
+            System.out.println("Desea salir, pulse 0:");
+            int opcion = entrada.nextInt();
+            
+            if(opcion == 0){
                 bandera = false;
             }
         }
